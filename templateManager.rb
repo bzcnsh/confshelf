@@ -6,14 +6,20 @@ class TemplateManager
       @templateHash[t['name']] = t
     }
   end
-  def lookupTemplate(device, component)
-    #match by device OS, OS version
-    #check component template
-    #if component template's not defined, lookup the template ancestor tree
-    template = lookupTemplate2(device.OS, device.OSVersion, component.downcase)
-    #caching for performance improvement
-    return ERB.new File.new("template/#{template}").read, nil, "<>"
-  end
+def lookupTemplateFilename(device, component)
+  #match by device OS, OS version
+  #check component template
+  #if component template's not defined, lookup the template ancestor tree
+  templateFile = lookupTemplate2(device.OS, device.OSVersion, component.downcase)
+end
+def lookupTemplate(device, component)
+  #match by device OS, OS version
+  #check component template
+  #if component template's not defined, lookup the template ancestor tree
+  template = lookupTemplateFilename(device, component)
+  #caching for performance improvement
+  return ERB.new File.new("template/#{template}").read, nil, "<>"
+end
   def lookupTemplate2(os, osversion, component)
     template = @templateArray.select{|x| x['OS']==os and x['OSVersion']==osversion}
     if template.length==0
