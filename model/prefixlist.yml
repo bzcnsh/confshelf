@@ -1,0 +1,5 @@
+component_type: Prefixlist
+template_name: String
+name: String
+description: String
+prefixes: List

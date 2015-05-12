@@ -1,0 +1,7 @@
+component_type: Device
+template_name: String
+name: String
+vendor: String
+model: String
+OS: String
+OSVersion: String

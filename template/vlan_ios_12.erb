@@ -1,0 +1,15 @@
+<%@device_interfaces.each do |i|%>
+interface <%=i["id"]%>
+ switchport
+ switchport mode <%=i["mode"]%> 
+<%if i["mode"]=="access"%>
+ switchport access vlan <%=@vlanid%>
+<%end%>
+<%if i["mode"]=="trunk"%>
+ switchport trunk allowed vlan add <%=@vlanid%>
+<%end%>
+<%if i.has_key?("features") and i["features"].has_key?("portfast") and i["features"]["portfast"]%>
+ spanning-tree portfast
+<%end%>
+ exit
+<%end%>

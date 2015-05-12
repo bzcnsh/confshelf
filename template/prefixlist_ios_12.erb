@@ -1,0 +1,3 @@
+<%@prefixes.each do |i|%>
+ip prefix-list <%=@name%> seq <%=i["seq"]%> premit <%=i["network"]%>/<%=i["mask_length"]%> <%=i["mask_range"]%>
+<%end%>

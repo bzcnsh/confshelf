@@ -1,0 +1,16 @@
+  - {device: rt1, name: eth0/0, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt1, name: eth0/1, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt1, name: eth0/2, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt1, name: eth0/3, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt1, name: eth0/4, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt1, name: eth0/5, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt1, name: eth0/6, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt1, name: eth0/7, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt2, name: eth0/0, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt2, name: eth0/1, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt2, name: eth0/2, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt2, name: eth0/3, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt2, name: eth0/4, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt2, name: eth0/5, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt2, name: eth0/6, speed: 1000000, duplex: full, type: 1000BaseT}
+  - {device: rt2, name: eth0/7, speed: 1000000, duplex: full, type: 1000BaseT}

@@ -1,0 +1,12 @@
+- component_type: device
+  vendor: cisco
+  model: "2610"
+  OS: IOS
+  OSVersion: "12.6"
+  name: rt1
+- component_type: device
+  vendor: cisco
+  model: "2610"
+  OS: IOS
+  OSVersion: "12.6"
+  name: rt2

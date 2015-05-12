@@ -1,0 +1,8 @@
+router ospf <%=@context_device["process_id"]%>
+<%if @context_device["router_id"]%>
+ router-id <%=@context_device["router_id"]%>
+<%end%>
+<%@networks.each do |x|%>
+ network <%=x["network"]%> <%=x["mask"]%> area <%=@area%>
+<%end%>
+ exit

@@ -1,0 +1,10 @@
+- vlanid: "100"
+  description: vlan for desktop in accounting group in office 1
+  interfaces:
+  #mode: trunk/access/vlan
+   - {device: rt1, id: eth0/0, mode: trunk}
+   - {device: rt2, id: eth0/0, mode: trunk}
+   - {device: rt1, id: eth0/5, mode: access}
+   - {device: rt2, id: eth0/5, mode: access, features: {portfast: true}}
+   - {device: rt2, id: eth0/6, mode: access, features: {portfast: true}}
+ 

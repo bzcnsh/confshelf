@@ -1,0 +1,15 @@
+- name: vendor1
+  description: subnets advertised by vendor1
+  prefixes:
+    - {network: 192.169.1.0, seq: 5, mask_length: 24, mask_range: "le 32"}
+    - {network: 192.169.2.0, seq: 10, mask_length: 24, mask_range: "le 32"}
+- name: vendor2
+  description: subnets advertised by vendor2
+  prefixes:
+    - {network: 192.170.1.0, seq: 5, mask_length: 24, mask_range: "le 32"}
+    - {network: 192.170.2.0, seq: 10, mask_length: 24, mask_range: "le 32"}
+- name: vendor3
+  description: subnets advertised by vendor3
+  prefixes:
+    - {network: 192.171.1.0, seq: 5, mask_length: 24, mask_range: "le 32"}
+    - {network: 192.171.2.0, seq: 10, mask_length: 24, mask_range: "le 32"}

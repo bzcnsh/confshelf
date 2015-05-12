@@ -1,0 +1,5 @@
+component_type: Ipvfoursubnet
+template_name: String
+subnet: String
+mask: String
+interfaces: List

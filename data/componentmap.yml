@@ -1,0 +1,8 @@
+#defines how a device will look for its associated components, some components are not directly associated with a device and have to go through some intermediate component
+- {listcomponent: vlan, keycomponent: [device]} 
+- {listcomponent: ipvfoursubnet, keycomponent: [device]} 
+- {listcomponent: aaa, keycomponent: [device]} 
+- {listcomponent: routerospf, keycomponent: [device]} 
+- {listcomponent: routerbgp, keycomponent: [device]} 
+- {listcomponent: prefixlist, keycomponent: [routerredistribute]}
+- {listcomponent: acl, keycomponent: [aaa]}

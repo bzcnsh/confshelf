@@ -1,0 +1,3 @@
+#list of static routes
+- {device: rt1, network: , mask: , next_hop: , metric: }
+- {device: rt2, network: , mask: , next_hop: , metric: }

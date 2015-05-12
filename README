@@ -1,0 +1,30 @@
+This project aims to provide an alternative way to manage configuration for cisco devices (router, switch, firewalls). Other brands and device types will be included as well.
+
+Create a generic model for a network environment. Components are devices, interfaces, vlans, ipv4 subnets, etherchannels, routing processes. 
+Each component has 3 parts, a data structure definition, a data set, a class that manipulates its data, and a configuration template.
+A component can generates its own configuration, given a template.
+A component's template is looked up using its device's OS version and the component's name.
+A device's configuration is the total of all its associated components' configuration.
+
+How to add support for a new component:
+1.define the component's data structure in /model folder
+2.create the component's class in /component folder
+3.create the component's database in /data folder
+4.create the component's template in /template folder, register the template in /data/template.yml
+
+Stories:
+1.Given a collection of components' data, then generate configuration for every device in the collection.
+2.Given a collection of components' data, and a change, then generate configuration to implement the change
+
+Steps to generate configuration for a device:
+1.read all component data
+2.determine association between a component and a device
+3.resolve each associated component's template
+4.collect configuration from every associated component
+5.marshall collected configuration
+
+
+
+optimization:
+/component/aaa.rb
+/component/ipvfoursubnet.rb

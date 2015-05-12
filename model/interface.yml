@@ -1,0 +1,9 @@
+component_type: Interface
+template_name: String
+device: String
+name: String
+speed: String
+duplex: String
+type: String
+ipv4address: String
+ipv4mask: String

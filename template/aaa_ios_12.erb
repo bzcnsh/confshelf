@@ -1,0 +1,8 @@
+<%@context_local_users.each do |i|%>
+username <%=i["name"]%> secret <%=i["password"]%>
+<%end%>
+<%@context_aaa_client_devices.each do |i|%>
+<%i["aaa_protocols"].each do |j|%>
+ip <%=j["protocol"]%> source-interface <%=j["source_interface"]%>
+<%end%>
+<%end%>

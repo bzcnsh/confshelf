@@ -1,0 +1,22 @@
+#is a list of autonomous systems
+- as_number: "12233"
+  type: "remote"
+  description: verizon_internet
+  peerings:
+    - {device: rt1, remote_address: 192.168.1.1}
+    - {device: rt2, remote_address: 192.168.3.1}
+  remote_prefix-lists:
+    - {prefix-list: [vendor1], preference: "high", device: rt1}
+    - {prefix-list: [vendor1], preference: "high", device: rt2}
+  local_prefix_lists:
+    - {prefix-list: [siteA], preference: "high", device: rt1}
+    - {prefix-list: [siteA], preference: "low", device: rt2}
+    - {prefix-list: [siteB], preference: "high", device: rt2}
+    - {prefix-list: [siteB], preference: "high", device: rt1}
+- as_number: "64433"
+  type: local
+  networks: [{network: 192.168.1.1, mask: 255.255.255.0}]
+  member_devices:
+    - {device: rt1, peer_address: 192.168.0.1}
+    - {device: rt2, peer_address: 192.168.0.2}
+    - {device: rt3, peer_address: 192.168.0.3}

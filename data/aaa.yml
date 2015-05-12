@@ -1,0 +1,18 @@
+- local_users:
+   - {name: user1, password: pass1, encryption: plaintext, privilege: 15}
+   - {name: user2, password: pass2, encryption: plaintext, privilege: 15}
+  local_usergroups:
+    - {name: group1, users: [user1,user2], devices: [rt1, rt2]}
+  aaa_servers:
+   - {protocol: radius, host: 192.168.1.1, auth-port: , acct-port: , key: }
+  aaa_server_groups:
+    - name: radius_server_group1
+      protocol: radius
+      protocol_parameters: {deadtimer: 12}
+      servers:
+      - {host: 192.168.1.1, auth-port: , acct-port: }
+  aaa_client_devices:
+    - {device: rt1, aaa_protocols: [{protocol: radius, source_interface: loopback1}]}
+  aaa_client_devices_authentication:
+    - {device: rt1, protected: login, authorities: [{type: aaa_server_group, name: radius_server_group1}, {type: local_users}]}
+    - {device: rt1, protected: console, authorities: [{type: aaa_server_group, name: radius_server_group1}, {type: local_users}]}

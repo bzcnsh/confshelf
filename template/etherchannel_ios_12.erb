@@ -1,0 +1,5 @@
+<%@device_interfaces.each do |i|%>
+interface <%=i["id"]%>
+ channel-group <%=@channel_id%> mode <%=@mode%>
+ exit
+<%end%>

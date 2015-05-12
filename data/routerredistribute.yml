@@ -1,0 +1,7 @@
+#list of redistributed routes
+- device: rt1
+  source: {protocol: ospf, process: "100"}
+  destination: {protocol: eigrp, process: "63230"}
+  prefix-lists:
+  - {prefix-list: vendor1, metric: 10}
+  - {prefix-list: vendor2, metric: 10}

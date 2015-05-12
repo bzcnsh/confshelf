@@ -1,0 +1,10 @@
+<%@interfaces.each do |i|%>
+<%if i["device"]==@device.name%>
+interface <%=i["id"]%>
+<%if ['et', 'po', 'fa', 'te'].include? i["id"][0,2].downcase%>
+ no switchport
+<%end%>
+ ip address <%=i["address"]%> <%=@mask%>
+ exit
+<%end%>
+<%end%>

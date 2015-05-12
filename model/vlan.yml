@@ -1,0 +1,5 @@
+component_type: Vlan
+template_name: String
+vlanid: String
+description: String
+interfaces: List
