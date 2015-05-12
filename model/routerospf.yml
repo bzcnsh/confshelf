@@ -9,3 +9,4 @@ devices:
 interfaces:
   #list of interfaces participating in this area
   - {device: device name, id: 'interface id, i.e, eth0/0', passive: true/false for passive interface, hello_interval: in seconds, cost: ospf cost of the interface, priority: int for DR priority}
+

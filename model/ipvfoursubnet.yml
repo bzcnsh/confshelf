@@ -2,4 +2,8 @@ component_type: Ipvfoursubnet
 template_name: String
 subnet: String
 mask: String
-interfaces: List
+interfaces:
+#list of interfaces
+#sample
+ - {device: rt1, id: eth0/0, address: 192.168.1.1}
+ - {device: rt2, id: eth0/0, address: 192.168.1.2}

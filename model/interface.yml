@@ -7,3 +7,6 @@ duplex: String
 type: String
 ipv4address: String
 ipv4mask: String
+#sample:
+#{device: rt1, name: eth0/1, speed: 1000000, duplex: full, type: 1000BaseT}
+

@@ -3,4 +3,7 @@ template_name: String
 channel_id: String
 description: String
 mode: String
-member_interfaces: List
+member_interfaces:
+#list of member interfaces
+#sample:
+#{device: rt1, id: eth0/0}
