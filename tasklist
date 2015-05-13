@@ -1,0 +1,13 @@
+compose component list (/data/support.yml)
+for each component
+	compose feature list
+compose OS and OSVersion list
+add support for component, component features (model, class)
+add support(template) for OS/Versions
+
+
+compose common change list
+for each change
+	create input yml file
+	create controller to manipulate data
+	create template file

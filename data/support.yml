@@ -1,0 +1,25 @@
+OS_Groups:
+- {name: "None", OSes[]}
+- {name: "IOS 12.0-12.6", OSes[{OS: IOS, min_version: 12.0, max_version: 12.6}]}
+component_support:
+- {component: device, features: [hostname], OS_Group: "IOS 12.0-12.6"}
+- {component: interface, features: [speed, duplex, description, type], OS_Group: "IOS 12.0-12.6"}
+- {component: vlan, features: [trunk, access, postfast], OS_Group: "IOS 12.0-12.6"}
+- {component: ipvfoursubnet, features: ["subnet", "mask", "interface ip"], OS_Group: "IOS 12.0-12.6"}
+- {component: etherchannel, features: ["mode", "member"], OS_Group: "IOS 12.0-12.6"}
+- {component: routerospf, features: ["network", "router-id", "process-id", "passive interface", "interface hello timer", "interface cost", "interface DR priority"], OS_Group: "IOS 12.0-12.6"}
+- {component: aaa, features: ["local user", "radius server", "server group", "source interface", login, console], OS_Group: "IOS 12.0-12.6"}
+- {component: spanning-tree, features: [], OS_Group: "None"}
+- {component: port-security, features: [], OS_Group: "None"}
+- {component: ssh server, features: [], OS_Group: "None"}
+- {component: ntp client, features: [], OS_Group: "None"}
+- {component: snmp client, features: [], OS_Group: "None"}
+- {component: syslog client, features: [], OS_Group: "None"}
+- {component: dns client, features: [], OS_Group: "None"}
+- {component: routerstatic, features: [], OS_Group: "None"}
+- {component: routerbgp, features: [], OS_Group: "None"}
+- {component: routereigrp, features: [], OS_Group: "None"}
+- {component: routerredistribute, features: [], OS_Group: "None"}
+- {component: hsrp, features: [], OS_Group: "None"}
+- {component: vrrp, features: [], OS_Group: "None"}
+- {component: vpn, features: [], OS_Group: "None"}
