@@ -4,3 +4,5 @@
 *.txt
 *.log
 *output*
+doc/
+.yardoc/

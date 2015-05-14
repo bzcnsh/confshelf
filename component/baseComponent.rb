@@ -1,4 +1,5 @@
 require 'erb'
+# @author Yimin Zheng 
 class BaseComponent
   @@classProperties = {}
   def self.classProperties=(names)
@@ -32,6 +33,15 @@ class BaseComponent
   def get_binding
     binding
   end
+  # check if self is associated with a device
+  #
+  # == Parameters:
+  # device::
+  #   the device to check association with
+  #
+  # == Returns:
+  # true if there is an association, false if not.
+  #
   def isAssociatedWith(device)
     if instance_variable_defined?("@device") and device.name==@device
       return true

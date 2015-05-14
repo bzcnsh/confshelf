@@ -1,3 +1,4 @@
+
 require 'yaml'
 require_relative 'component/device'
 require_relative 'component/interface'
