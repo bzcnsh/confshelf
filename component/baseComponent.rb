@@ -1,13 +1,17 @@
 require 'erb'
-# @author Yimin Zheng 
+#base class for all components
 class BaseComponent
+  # hold names of all instance variables
   @@classProperties = {}
+  # dynamically create instance variables and their accessors
+  # @param names (hash) a hash whose keys are names of instance variables
   def self.classProperties=(names)
     @@classProperties = names
     @@classProperties.each { |name, value| 
       define_property name
     }
   end
+  # dynamically create instance variable accessors
   def self.define_property(name)
     define_method(name) do
       instance_variable_get("@#{name}")
@@ -22,6 +26,7 @@ class BaseComponent
   def getConfig
     return @template.result(get_binding)
   end
+  #
   def getConfig(device)
     return @template.result(get_binding)
   end
