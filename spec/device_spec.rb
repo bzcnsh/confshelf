@@ -1,5 +1,5 @@
-require 'yaml'
-require_relative "../component/device"
+require "spec_helper"
+require "component/device"
 
 describe "Device test/" do
   before do

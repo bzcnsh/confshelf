@@ -1,5 +1,5 @@
-require 'yaml'
-require_relative "../component/vlan"
+require "spec_helper"
+require "component/vlan"
 
 describe "Vlan test/" do
   before do

@@ -1,4 +1,5 @@
-require_relative "baseComponent"
+require "component/baseComponent"
+
 class Routerospf < BaseComponent
   def isAssociatedWith(device)
     if @devices.select{|i| i["device"] == device.name}.length>0

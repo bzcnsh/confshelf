@@ -1,5 +1,5 @@
-require 'yaml'
-require_relative "../templateManager"
+require "spec_helper"
+require  "templateManager"
 
 describe "TemplateManager test/" do
   before do

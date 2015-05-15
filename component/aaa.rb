@@ -1,4 +1,5 @@
-require_relative "baseComponent"
+require "component/baseComponent"
+
 class Aaa < BaseComponent
   def isAssociatedWith(device)
     return true

@@ -1,4 +1,5 @@
-require_relative "baseComponent"
+require "component/baseComponent"
+
 class Ipvfoursubnet < BaseComponent
   def isAssociatedWith(device)
     if @interfaces.select{|i| i["device"] == device.name}.length>0

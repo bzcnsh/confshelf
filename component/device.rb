@@ -1,4 +1,5 @@
-require_relative "baseComponent"
+require "component/baseComponent"
+
 class Device < BaseComponent
   def initialize()
     @AssociatedComponents=[]

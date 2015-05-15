@@ -1,3 +1,3 @@
-require_relative "baseComponent"
+require "component/baseComponent"
 class Interface < BaseComponent
 end

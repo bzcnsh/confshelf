@@ -1,4 +1,5 @@
-require_relative "baseComponent"
+require "component/baseComponent"
+
 class Etherchannel < BaseComponent
   def isAssociatedWith(device)
     if @member_interfaces.select{|i| i["device"] == device.name}.length>0

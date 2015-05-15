@@ -1,14 +1,16 @@
+libdir = File.expand_path("..", __FILE__)
+$LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
 
 require 'yaml'
-require_relative 'component/device'
-require_relative 'component/interface'
-require_relative 'component/vlan'
-require_relative 'component/ipvfoursubnet'
-require_relative 'component/etherchannel'
-require_relative 'component/prefixlist'
-require_relative 'component/routerospf'
-require_relative 'component/aaa'
-require_relative 'templateManager'
+require 'component/device'
+require 'component/interface'
+require 'component/vlan'
+require 'component/ipvfoursubnet'
+require 'component/etherchannel'
+require 'component/prefixlist'
+require 'component/routerospf'
+require 'component/aaa'
+require 'templateManager'
 
 #read class definition
 #add property accessor methods to class definition
