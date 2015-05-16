@@ -21,7 +21,6 @@ class Aaa < BaseComponent
   attr_accessor :local_users, :local_usergroups, :aaa_servers, :aaa_server_groups, :aaa_client_device, :aaa_client_device_authentication
   def getConfig(device)
     #optimization: can use hashdiff gem
-    puts @local_usergroups.inspect
     @context_local_usergroups = @local_usergroups.select{|x| x['devices'].include?(device.name)}
     localusers = []
     @context_local_usergroups.each {|x| localusers.push(*x["users"])}

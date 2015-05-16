@@ -1,16 +1,42 @@
 This project aims to provide an alternative way to manage configuration for cisco devices (router, switch, firewalls). Other brands and device types will be included as well.
 
 Create a generic model for a network environment. Components are devices, interfaces, vlans, ipv4 subnets, etherchannels, routing processes. 
-Each component has 3 parts, a data structure definition, a data set, a class that manipulates its data, and a configuration template.
+Each component has 3 parts, a class that manipulates its data, a data set that holds inventory, and one or more configuration template.
 A component can generates its own configuration, given a template.
 A component's template is looked up using its device's OS version and the component's name.
 A device's configuration is the total of all its associated components' configuration.
 
 How to add support for a new component:
-1.define the component's data structure in /model folder
-2.create the component's class in /component folder
-3.create the component's database in /data folder
-4.create the component's template in /template folder, register the template in /data/template.yml
+1.create the component's class in /component folder
+2.create the component's database in /data folder
+3.create the component's template in /template folder, register the template in /data/template.yml
+
+Why confshelf?
+Traditionally, a device is usually a part of something--a routing domain, a VLAN, a spanning tree. That something's configuration is spread out to every participating device, but never centrally defined, except in design documentation or diagram.
+For example, for an OSPF area 0 with 4 participating devices, the configuration has to be entered into each device, with little variation between each other.
+With confshelf, you define an OSPF area by including its participating routers, interfaces, and networks in a single yml file.
+like this:
+- area: "0"
+  networks:
+  - {network: 192.168.0.0, masklength: 16}
+  devices:
+  - {device_name: rt1, router_id: 1.1.1.1, process_id: "100"}
+  - {device_name: rt2, router_id: 1.1.1.2, process_id: "100"}
+  - {device_name: rt3, router_id: 1.1.1.3, process_id: "100"}
+  - {device_name: rt4, router_id: 1.1.1.4, process_id: "100"}
+  interfaces:
+   - {device_name: rt1, name: eth0/0, hello_interval: 10, cost: 20}
+   - {device_name: rt2, name: eth0/0, hello_interval: 10, cost: 10}
+   - {device_name: rt1, name: eth0/1, passive: true}
+   - {device_name: rt2, name: eth0/1, passive: true}
+   - {device_name: rt3, name: eth0/0, hello_interval: 10, cost: 20}
+   - {device_name: rt4, name: eth0/0, hello_interval: 10, cost: 10}
+   - {device_name: rt3, name: eth0/1, passive: true}
+   - {device_name: rt4, name: eth0/1, passive: true}
+
+And confshelf will generate configuration for each device. With confshelf, you can define your network at a higher level.
+The ideal process is to the create the L1, L2, and L3 diagrams, and translate these diagrams into yml files, then have confshelf generate the configuration for every device on the diagrams.
+confshelf takes care to translate your vendor neutral description to vendor/model specific configurations.
 
 Stories:
 1.Given a collection of components' data, then generate configuration for every device in the collection.
@@ -22,9 +48,3 @@ Steps to generate configuration for a device:
 3.resolve each associated component's template
 4.collect configuration from every associated component
 5.marshall collected configuration
-
-
-
-optimization:
-/component/aaa.rb
-/component/ipvfoursubnet.rb

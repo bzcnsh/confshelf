@@ -1,10 +1,8 @@
-<%@interfaces.each do |i|%>
-<%if i["device"]==@device.name%>
-interface <%=i["id"]%>
-<%if ['et', 'po', 'fa', 'te'].include? i["id"][0,2].downcase%>
+<%@context_interfaces.each do |i|%>
+interface <%=i["name"]%>
+<%if ['et', 'po', 'fa', 'te'].include? i["name"][0,2].downcase%>
  no switchport
 <%end%>
- ip address <%=i["address"]%> <%=@mask%>
+ ip address <%=i["address"]%> <%=@context_netmask%>
  exit
-<%end%>
 <%end%>

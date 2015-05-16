@@ -4,8 +4,7 @@ require 'utils/misc'
 class BaseComponent
   include Misc
   attr_accessor :template, :name, :description, :client_components, :server_components
-  # dynamically create instance variables and their accessors
-  # @param names (hash) a hash whose keys are names of instance variables
+
   def initialize
     @associatedComponents=[]
     @client_components=[]
