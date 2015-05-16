@@ -1,20 +1,28 @@
 - name: IOS_12
   OS: IOS
-  OSVersion: "12.0"
+  versionConstraints: [">=12.00", "<13.00"]
   device_template: device_ios_12.erb
-  interface_template: interface_ios_12.erb
   vlan_template: vlan_ios_12.erb
-  ipvfoursubnet_template: ipvfoursubnet_ios_12.erb
-  etherchannel_template: etherchannel_ios_12.erb
-  prefixlist_template: prefixlist_ios_12.erb
-  routerospf_template: routerospf_ios_12.erb
-  aaa_template: aaa_ios_12.erb
-  router_eigrp_template: router_eigrp_ios_12.erb
-  router_bgp_template: router_bgp_ios_12.erb
-  router_static_template: router_static_ios_12.erb
   hsrp_template: hsrp_ios_12.erb
   grrp_template: grrp_ios_12.erb
-- name: IOS_12.6
+- name: IOS_13_0
   OS: IOS
-  OSVersion: "12.6"
+  versionConstraints: [">=13.00", "<=13.01"]
   super_template: IOS_12
+  hsrp_template: hsrp_ios_130.erb
+- name: IOS_13_1
+  OS: IOS
+  versionConstraints: [">13.01", "<=13.08"]
+  super_template: IOS_13_0
+  grrp_template: grrp_ios_13.erb
+- name: IOS_13_8
+  OS: IOS
+  versionConstraints: [">13.08", "<14.00"]
+  super_template: IOS_13_1
+  hsrp_template: hsrp_ios_13.8.erb
+- name: IOS_14
+  OS: IOS
+  versionConstraints: ["=14.00"]
+  hsrp_template: hsrp_ios_14.erb
+  super_template: IOS_NOT_EXIST
+  
