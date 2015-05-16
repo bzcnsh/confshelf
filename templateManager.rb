@@ -4,8 +4,12 @@ class TemplateManager
     @templateHash = {}
     @templateArray = templateArray
     templateArray.each { |t|
-      t["versionConstraints"].map!{|x| x = formatVersionConstraint(x)}
-      @templateHash[t['name']] = t
+      if t.has_key?("name") and t.has_key?("OS") and t.has_key?("versionConstraints") and t["versionConstraints"].length>0 
+        t["versionConstraints"].map!{|x| x = formatVersionConstraint(x)}
+        @templateHash[t['name']] = t
+      else
+        puts "a template is missing key data and will be ignored"
+      end
     }
   end
   def formatVersionConstraint(input)
@@ -40,7 +44,7 @@ class TemplateManager
     #if component template's not defined, lookup the template ancestor tree
     template = lookupTemplateFilename(device, component)
     #caching for performance improvement
-    if template.nil?
+    if not template.nil?
       return ERB.new File.new("template/#{template}").read, nil, "<>"
     else
       return nil

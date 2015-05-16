@@ -1,6 +1,6 @@
 - name: IOS_12
   OS: IOS
-  OSVersion: "12.0"
+  versionConstraints: [">=12.00", "<12.06"]
   device_template: device_ios_12.erb
   interface_template: interface_ios_12.erb
   vlan_template: vlan_ios_12.erb
@@ -16,5 +16,5 @@
   grrp_template: grrp_ios_12.erb
 - name: IOS_12.6
   OS: IOS
-  OSVersion: "12.6"
+  versionConstraints: ["=12.06"]
   super_template: IOS_12

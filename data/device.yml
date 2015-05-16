@@ -2,11 +2,11 @@
   vendor: cisco
   model: "2610"
   OS: IOS
-  OSVersion: "12.6"
+  OSVersion: "12.06"
   name: rt1
 - component_type: device
   vendor: cisco
   model: "2610"
   OS: IOS
-  OSVersion: "12.6"
+  OSVersion: "12.06"
   name: rt2
