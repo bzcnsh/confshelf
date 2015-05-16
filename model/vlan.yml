@@ -1,7 +1,0 @@
-component_type: Vlan
-vlanid: String
-description: String
-interfaces:
-#list of interfaces
- - {device_name: hostname, name: eth0/6, mode: access/trunk/voice/routed, features: {portfast: true}}
- 

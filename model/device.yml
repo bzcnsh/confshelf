@@ -1,8 +1,0 @@
-component_type: Device
-name: String
-vendor: String
-model: String
-OS: String
-OSVersion: String
-#sample:
-#- {vendor: cisco, model: "2610", OS: IOS, OSVersion: "12.6", name: rt1}

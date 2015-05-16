@@ -1,7 +1,0 @@
-component_type: Prefixlist
-name: String
-description: String
-prefixes:
-#list of prefixes
-#sample
- - {network: 192.171.2.0, seq: 10, mask_length: 24, mask_range: "le 32"}
