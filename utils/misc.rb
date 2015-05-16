@@ -1,12 +1,11 @@
-def ipv4netmask_str_to_length(string)
-  retun 6
-end
-def ipv4netmask_length_to_string(length)
-  return "255.255.0.0"
-end
-def ipv4aclmask_str_to_length(string)
-  return 12
-end
-def ipv4aclmask_length_to_string(length)
-  return "0.0.255.255"
+module Misc
+  def traverseStructure(input, key=nil, block)
+    if input.is_a?(Array)
+      input.each {|x| traverseStructure(x, key, block)}
+    elsif input.is_a?(Hash)
+      input.each_pair {|k,v| traverseStructure(v, k, block)}
+    else
+      return block[input, key]
+    end
+  end
 end

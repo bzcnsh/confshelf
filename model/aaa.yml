@@ -1,5 +1,4 @@
 component_type: Aaa
-template_name: String
 local_users:
  # List of local users
  - {name: username, password: user password, encryption: password encryption scheme, privilege: numeric value}

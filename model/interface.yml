@@ -1,5 +1,4 @@
 component_type: Interface
-template_name: String
 device: String
 name: String
 speed: String

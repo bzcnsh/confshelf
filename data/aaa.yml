@@ -12,7 +12,7 @@
       servers:
       - {host: 192.168.1.1, auth-port: , acct-port: }
   aaa_client_devices:
-    - {device: rt1, aaa_protocols: [{protocol: radius, source_interface: loopback1}]}
+    - {device_name: rt1, aaa_protocols: [{protocol: radius, source_interface: loopback1}]}
   aaa_client_devices_authentication:
-    - {device: rt1, protected: login, authorities: [{type: aaa_server_group, name: radius_server_group1}, {type: local_users}]}
-    - {device: rt1, protected: console, authorities: [{type: aaa_server_group, name: radius_server_group1}, {type: local_users}]}
+    - {device_name: rt1, protected: login, authorities: [{type: aaa_server_group, name: radius_server_group1}, {type: local_users}]}
+    - {device_name: rt1, protected: console, authorities: [{type: aaa_server_group, name: radius_server_group1}, {type: local_users}]}

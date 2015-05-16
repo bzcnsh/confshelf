@@ -1,8 +1,25 @@
-#defines how a device will look for its associated components, some components are not directly associated with a device and have to go through some intermediate component
-- {listcomponent: vlan, keycomponent: [device]} 
-- {listcomponent: ipvfoursubnet, keycomponent: [device]} 
-- {listcomponent: aaa, keycomponent: [device]} 
-- {listcomponent: routerospf, keycomponent: [device]} 
-- {listcomponent: routerbgp, keycomponent: [device]} 
-- {listcomponent: prefixlist, keycomponent: [routerredistribute]}
-- {listcomponent: acl, keycomponent: [aaa]}
+#defines association between components, a client component uses one or more server component directly
+#to generate its configuration, a device queries all its servers for configuration, recursively
+#each server queries its servers for configuration, recursively
+#a device also queries all its clients for configuration
+#each client queries its servers for configuration, recursively
+#a client should keep reference to all its servers
+#a server should keep reference to all its clients
+- {client: device, servers: [interface, aaa, snmp, logging]}
+- {client: vlan, servers: [interface]}
+- {client: spanningtree, servers: [interface, device, vlan]}
+- {client: ipvfoursubnet, servers: [interface]}
+- {client: routerospf, servers: [interface, device, ipvfoursubnet]}
+- {client: routerbgp, servers: [interface, device, ipvfoursubnet, routemap]}
+- {client: pim, servers: [interface, device]}
+- {client: igmp, servers: [interface, device]}
+- {client: igmp, servers: [interface, device]}
+- {client: routereigrp, servers: [interface, device, ipvfoursubnet]}
+- {client: routerstatic, servers: [interface, device, ipvfoursubnet]}
+- {client: routerredistribute, servers: [device, routerospf, routerbgp, routereigrp, routerstatic, routemap]}
+- {client: aaa, servers: [device]}
+- {client: routemap, servers: [prefixlist, acl]}
+- {client: logging, servers: []}
+- {client: snmp, servers: []}
+- {client: acl, servers: []}
+- {client: prefixlist, servers: []}

@@ -54,17 +54,8 @@ class TemplateManager
     t2=[]
     template = @templateArray.select{|x| x['OS']==os}
     template.each {|x|
-      isMatch=true
-      x['versionConstraints'].each {|y| 
-        #every constraint has to match
-        if not matchAVersionContraint(osversion, y)
-          isMatch=false
-          next
-        end
-      }
-      if(isMatch)
-        t2<<x
-      end
+      #every constraint has to match
+      t2<<x unless x['versionConstraints'].map {|y| matchAVersionContraint(osversion, y)}.include? false
     }
     if t2.length==0
       puts "no template for #{os}, #{osversion}"
@@ -93,5 +84,4 @@ class TemplateManager
       end
     end
   end
-
 end

@@ -3,14 +3,11 @@ require "component/device"
 
 describe "Device test/" do
   before do
-    deviceDefinition = YAML.load_file('model/device.yml')
-    Device.classProperties=deviceDefinition
-
     @devices = []
     deviceData = YAML.load_file('test-data/device.yml')
     deviceData.each { |d|
       dev = Device.new()
-      dev.setProperties(d)
+      dev.properties=(d)
       @devices  << dev
     }
   end

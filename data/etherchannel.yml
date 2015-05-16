@@ -3,12 +3,12 @@
   description: connection to rt2
   mode: desirable
   member_interfaces:
-  - {device: rt1, id: eth0/0}
-  - {device: rt1, id: eth0/1}
+  - {device_name: rt1, name: eth0/0}
+  - {device_name: rt1, name: eth0/1}
 - channel_id: "10"
   description: connection to rt1
   mode: desirable
   member_interfaces:
-  - {device: rt2, id: eth0/0}
-  - {device: rt2, id: eth0/1}
+  - {device_name: rt2, name: eth0/0}
+  - {device_name: rt2, name: eth0/1}
   

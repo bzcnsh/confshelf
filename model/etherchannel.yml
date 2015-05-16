@@ -1,5 +1,4 @@
 component_type: Etherchannel
-template_name: String
 channel_id: String
 description: String
 mode: String

@@ -1,27 +1,15 @@
 require 'erb'
+require 'utils/misc'
 #base class for all components
 class BaseComponent
-  # hold names of all instance variables
-  @@classProperties = {}
+  include Misc
+  attr_accessor :template, :name, :description, :client_components, :server_components
   # dynamically create instance variables and their accessors
   # @param names (hash) a hash whose keys are names of instance variables
-  def self.classProperties=(names)
-    @@classProperties = names
-    @@classProperties.each { |name, value| 
-      define_property name
-    }
-  end
-  # dynamically create instance variable accessors
-  def self.define_property(name)
-    define_method(name) do
-      instance_variable_get("@#{name}")
-    end
-    define_method("#{name}=") do |new_value|
-      instance_variable_set("@#{name}", new_value)
-    end
-  end
-  def template=(template)
-    @template = template
+  def initialize
+    @associatedComponents=[]
+    @client_components=[]
+    @server_components=[]
   end
   def getConfig
     return @template.result(get_binding)
@@ -30,7 +18,8 @@ class BaseComponent
   def getConfig(device)
     return @template.result(get_binding)
   end
-  def setProperties(properties)
+  def properties=(properties)
+    @properties = properties
     properties.each { |name, value| 
       instance_variable_set("@#{name}", value)
     }
@@ -38,20 +27,25 @@ class BaseComponent
   def get_binding
     binding
   end
-  # check if self is associated with a device
+  def matchComponent(value, key=nil)
+    if value.to_s.casecmp(@componentBeingChecked["name"].to_s)==0
+      @associatedComponents<<value unless @associatedComponents.include?(value)
+    end
+  end
+  # check if self is associated with a component
   #
   # == Parameters:
-  # device::
-  #   the device to check association with
+  # componentName::
+  #   name of the component
+  # componentType::
+  #   type of the component
   #
   # == Returns:
   # true if there is an association, false if not.
   #
-  def isAssociatedWith(device)
-    if instance_variable_defined?("@device") and device.name==@device
-      return true
-    else
-      return false
-    end
+  def isAssociatedWith(componentName, componentType=nil)
+    @componentBeingChecked = {"name"=>componentName.to_s, "type"=>componentType}
+    traverseStructure(@properties, nil, self.method(:matchComponent))
+    return @associatedComponents.include?(componentName)
   end
 end

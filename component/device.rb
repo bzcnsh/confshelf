@@ -1,6 +1,9 @@
 require "component/baseComponent"
 
+#sample:
+#- {vendor: cisco, model: "2610", OS: IOS, OSVersion: "12.6", name: rt1}
 class Device < BaseComponent
+  attr_accessor :vendor, :model, :OS, :OSVersion
   def initialize()
     @AssociatedComponents=[]
   end

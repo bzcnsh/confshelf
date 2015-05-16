@@ -3,22 +3,22 @@
   networks:
   - {network: 192.168.0.0, mask_length: 16, mask: 255.255.0.0 }
   devices:
-  - {device: rt1, router_id: 1.1.1.1, process_id: "100"}
-  - {device: rt2, router_id: 1.1.1.2, process_id: "100"}
+  - {device_name: rt1, router_id: 1.1.1.1, process_id: "100"}
+  - {device_name: rt2, router_id: 1.1.1.2, process_id: "100"}
   interfaces:
-   - {device: rt1, id: eth0/0, hello_interval: 10, cost: 20}
-   - {device: rt2, id: eth0/0, hello_interval: 10, cost: 10}
-   - {device: rt1, id: eth0/1, passive: true}
-   - {device: rt2, id: eth0/1, passive: true}
+   - {device_name: rt1, name: eth0/0, hello_interval: 10, cost: 20}
+   - {device_name: rt2, name: eth0/0, hello_interval: 10, cost: 10}
+   - {device_name: rt1, name: eth0/1, passive: true}
+   - {device_name: rt2, name: eth0/1, passive: true}
 - area: "1"
   features: {}
   networks:
   - {network: 192.169.0.0, mask_length: 16, mask: 255.255.0.0}
   devices:
-  - {device: rt1, router_id: 1.1.1.1, process_id: "100"}
-  - {device: rt2, router_id: 1.1.1.2, process_id: "100"}
+  - {device_name: rt1, router_id: 1.1.1.1, process_id: "100"}
+  - {device_name: rt2, router_id: 1.1.1.2, process_id: "100"}
   interfaces:
-   - {device: rt1, id: eth0/0, hello_interval: 10, cost: 20, priority: 10}
-   - {device: rt2, id: eth0/0, hello_interval: 10, cost: 10}
-   - {device: rt1, id: eth0/1, passive: true}
-   - {device: rt2, id: eth0/1, passive: true}
+   - {device_name: rt1, name: eth0/0, hello_interval: 10, cost: 20, priority: 10}
+   - {device_name: rt2, name: eth0/0, hello_interval: 10, cost: 10}
+   - {device_name: rt1, name: eth0/1, passive: true}
+   - {device_name: rt2, name: eth0/1, passive: true}

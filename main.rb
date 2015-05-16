@@ -35,20 +35,18 @@ componentDB = {
 }
 
 componentDB.each {|k, v|
-  componentDefinition = YAML.load_file("model/#{k}.yml")
-  v["componentClass"].classProperties=componentDefinition
   data = YAML.load_file("data/#{k}.yml")
   data.each { |d|
     component = v["componentClass"].new()
     #puts d.inspect
-    component.setProperties(d)
+    component.properties=d
     v["list"] << component
     if k == "device"
       t = tm.lookupTemplate(component, "device")
       component.template=t
     else
       @devices.each { |dev|
-        if component.isAssociatedWith(dev)
+        if component.isAssociatedWith(dev.name, "device")
           dev.getAssociateComponents.push(component)
           t = tm.lookupTemplate(dev, component.class.name)
           component.template=t
