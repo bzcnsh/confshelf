@@ -1,0 +1,19 @@
+#mode: active/passive/desirable/vpc
+label_protocol: ldp
+interfaces:
+  - device: r10
+    interface: fa0/0
+  - device: r10
+    interface: fa0/1
+  - device: pe1
+    interface: fa0/0
+  - device: pe1
+    interface: fa0/1
+  - device: r11
+    interface: fa0/0
+  - device: r11
+    interface: fa0/1
+  - device: pe2
+    interface: fa0/0
+  - device: pe2
+    interface: fa0/1

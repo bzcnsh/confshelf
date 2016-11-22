@@ -1,0 +1,7 @@
+ip cef
+mpls label protocol <%=label_protocol%>
+<%@device_interfaces.each do |i|%>
+interface <%=i["id"]%>
+ mpls_ip
+ exit
+<%end%>

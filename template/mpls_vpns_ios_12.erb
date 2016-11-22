@@ -1,0 +1,12 @@
+<%@device_customer_interfaces.each do |i|%>
+interface <%=i["id"]%>
+ ip vrf forwarding <%=vrf%>
+ exit
+<%end%>
+router bgp <%@device.mp_bgp_as%>
+<%@device.mp_bgp_neighbors.each do |i|%>
+  address-family vpnv4
+  neighbor 
+  address-family ipv4 vrf <%=vrf%>
+  <%@device.customer_protocols.each do |i|%>
+  redistribute <%=i%>

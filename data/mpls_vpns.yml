@@ -1,0 +1,20 @@
+- customer_name: corp A
+  vrf: cust-A
+  route-distinguisher: 65001:111
+  route-target-import: []
+  route-target_export: 100:2000
+  pe_devices:
+  - name: pe1
+    mpbgp_as: 65000
+    customer_interfaces: [fa0/0]
+    customer_protocols:
+    - name: connected
+    - name: eigrp 54
+      route-map: asdasdas
+  - name: pe2
+    mpbgp_as: 65000 
+    customer_interface: fa0/0
+    customer_protocols:
+    - name: connected
+    - name: eigrp 54
+      router-map: asdasdsa
